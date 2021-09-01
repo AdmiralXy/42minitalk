@@ -5,26 +5,29 @@ CFLAGS = -Wall -Wextra -Werror
 
 CLIENT_NAME = client
 SERVER_NAME = server
-SRCS =
 
-OBJS = $(SRCS:%.c=%.o)
+SRCS_CLIENT = ft_client.c
+SRCS_SERVER = ft_client.c
+
+OBJS_CLIENT = $(SRCS_CLIENT:%.c=%.o)
+OBJS_SERVER = $(SRCS_SERVER:%.c=%.o)
 
 %.o: %.c $(INCLUDES)
 	$(CC) $(CFLAGS) -c $< -Ilibft
 
-$(CLIENT_NAME): $(OBJS)
+$(CLIENT_NAME): $(OBJS_CLIENT)
 	@make -C libft
-	$(CC) -o $(NAME) $(OBJS) $(CFLAGS) -I$(INC) libft/libft.a
+	$(CC) -o $(CLIENT_NAME) $(OBJS_CLIENT) $(CFLAGS) -I$(INC) libft/libft.a
 
-$(SERVER_NAME): $(OBJS)
+$(SERVER_NAME): $(OBJS_SERVER)
 	@make -C libft
-	$(CC) -o $(NAME) $(OBJS) $(CFLAGS) -I$(INC) libft/libft.a
+	$(CC) -o $(SERVER_NAME) $(OBJS_SERVER) $(CFLAGS) -I$(INC) libft/libft.a
 
 all: $(CLIENT_NAME) $(SERVER_NAME)
 
 clean:
 	@make -C libft clean
-	$(RM) $(OBJS)
+	$(RM) $(OBJS_CLIENT) $(OBJS_SERVER)
 
 fclean: clean
 	@make -C libft fclean
@@ -34,4 +37,4 @@ re: clean all
 
 norme:
 	norminette libft/*.c libft/*.h
-	norminette $(SRCS) $(INCLUDES)
+	norminette $(SRCS_CLIENT) $(SRCS_SERVER) $(INCLUDES)
