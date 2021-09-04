@@ -6,7 +6,7 @@
 /*   By:  <kricky@student.21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 15:28:42 by                   #+#    #+#             */
-/*   Updated: 2021/09/04 11:15:45 by                  ###   ########.fr       */
+/*   Updated: 2021/09/04 14:34:31 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_char_handler
 {
 	char			byte;
 	unsigned int	size;
+	size_t 			client_pid;
 }				t_char_handler;
 
 #endif
