@@ -6,11 +6,16 @@
 /*   By: kricky <kricky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 10:33:51 by kricky            #+#    #+#             */
-/*   Updated: 2021/09/01 10:35:07 by kricky           ###   ########.fr       */
+/*   Updated: 2021/09/06 20:28:05 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_minitalk.h"
+
+static int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
 
 static int	ft_issign(int c)
 {
@@ -20,7 +25,7 @@ static int	ft_issign(int c)
 static int	ft_iswhitespace(int c)
 {
 	return ((char)c == '\t' || (char)c == '\v' || (char)c == '\f'
-		|| (char)c == '\r' || (char)c == '\n' || (char)c == ' ');
+	|| (char)c == '\r' || (char)c == '\n' || (char)c == ' ');
 }
 
 static	int	ft_checkoverflow(int res, int term, int sign)

@@ -6,8 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 CLIENT_NAME = client
 SERVER_NAME = server
 
-SRCS_CLIENT = ft_client.c ft_utils.c
-SRCS_SERVER = ft_server.c ft_utils.c
+SRCS_CLIENT = ft_client.c ft_utils.c ft_atoi.c
+SRCS_SERVER = ft_server.c ft_utils.c ft_atoi.c
 
 OBJS_CLIENT = $(SRCS_CLIENT:%.c=%.o)
 OBJS_SERVER = $(SRCS_SERVER:%.c=%.o)
@@ -18,12 +18,10 @@ OBJS_SERVER = $(SRCS_SERVER:%.c=%.o)
 build: $(OBJS_CLIENT) $(OBJS_SERVER) $(CLIENT_NAME) $(SERVER_NAME)
 
 $(CLIENT_NAME): $(OBJS_CLIENT)
-	@make -C libft
-	$(CC) -o $(CLIENT_NAME) $(OBJS_CLIENT) $(CFLAGS) -I$(INC) libft/libft.a
+	$(CC) -o $(CLIENT_NAME) $(OBJS_CLIENT) $(CFLAGS) -I$(INC)
 
 $(SERVER_NAME): $(OBJS_SERVER)
-	@make -C libft
-	$(CC) -o $(SERVER_NAME) $(OBJS_SERVER) $(CFLAGS) -I$(INC) libft/libft.a
+	$(CC) -o $(SERVER_NAME) $(OBJS_SERVER) $(CFLAGS) -I$(INC)
 
 all: $(CLIENT_NAME) $(SERVER_NAME)
 
@@ -38,7 +36,8 @@ fclean: clean
 re: clean all
 
 norme:
-	norminette libft/*.c libft/*.h
 	norminette $(SRCS_CLIENT) $(SRCS_SERVER) $(INCLUDES)
+
+bonus: build
 
 .PHONY: build

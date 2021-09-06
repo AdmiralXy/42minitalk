@@ -16,7 +16,8 @@ void	ft_build_message(int bit, t_char_handler *char_handler)
 		if (!char_handler->byte)
 		{
 			ft_putchar_fd('\n', 1);
-			kill(char_handler->client_pid, SIGUSR2);
+			kill(char_handler->client_pid, SIGUSR1);
+			usleep(75);
 		}
 		char_handler->byte = 0;
 		char_handler->size = 0;
@@ -41,11 +42,11 @@ int	main(void)
 	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putendl_fd("", 1);
-	while (TRUE)
+	while (1)
 	{
 		sigaction(SIGUSR2, &sa, NULL);
 		sigaction(SIGUSR1, &sa, NULL);
 		pause();
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
