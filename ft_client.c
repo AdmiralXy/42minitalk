@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_client.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By:  <kricky@student.21-school.ru>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/07 20:40:23 by                   #+#    #+#             */
+/*   Updated: 2021/09/07 20:40:23 by                  ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_minitalk.h"
 
 void	ft_bit_handler(int bit)
@@ -15,7 +27,7 @@ void	ft_send_byte(int pid, char byte)
 {
 	int		shift;
 	int		result;
-	int 	bit;
+	int		bit;
 
 	shift = 0;
 	while (shift < 8)
