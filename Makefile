@@ -13,7 +13,7 @@ OBJS_CLIENT = $(SRCS_CLIENT:%.c=%.o)
 OBJS_SERVER = $(SRCS_SERVER:%.c=%.o)
 
 %.o: %.c $(INCLUDES)
-	$(CC) $(CFLAGS) -c $< -Ilibft
+	$(CC) $(CFLAGS) -c $<
 
 build: $(OBJS_CLIENT) $(OBJS_SERVER) $(CLIENT_NAME) $(SERVER_NAME)
 
@@ -26,11 +26,9 @@ $(SERVER_NAME): $(OBJS_SERVER)
 all: $(CLIENT_NAME) $(SERVER_NAME)
 
 clean:
-	@make -C libft clean
 	$(RM) $(OBJS_CLIENT) $(OBJS_SERVER)
 
 fclean: clean
-	@make -C libft fclean
 	$(RM) $(CLIENT_NAME) $(SERVER_NAME)
 
 re: clean all
