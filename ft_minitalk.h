@@ -25,6 +25,7 @@ typedef struct s_char_handler
 	size_t 			client_pid;
 }				t_char_handler;
 
+int		ft_atoi(const char *str);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *s, int fd);
