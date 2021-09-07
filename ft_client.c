@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 			ft_putendl_fd("Please remove unnecessary parameters.", 1);
 		return (1);
 	}
-	server_pid = atoi(argv[1]);
+	server_pid = ft_atoi(argv[1]);
 	if (server_pid < 0)
 		ft_putendl_fd("Please enter the PID of the server correctly.", 1);
 	ft_putendl_fd("Try to send...", 1);
