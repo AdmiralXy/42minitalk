@@ -31,7 +31,7 @@ void	ft_send_byte(int pid, char byte)
 	}
 	if (result == -1)
 	{
-		ft_putendl_fd("Server PID is invalid!", 1);
+		ft_putendl_fd("Server PID is invalid or doesn't exist!", 1);
 		exit(1);
 	}
 }
