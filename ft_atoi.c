@@ -13,7 +13,7 @@ static int	ft_issign(int c)
 static int	ft_iswhitespace(int c)
 {
 	return ((char)c == '\t' || (char)c == '\v' || (char)c == '\f'
-	|| (char)c == '\r' || (char)c == '\n' || (char)c == ' ');
+		|| (char)c == '\r' || (char)c == '\n' || (char)c == ' ');
 }
 
 static	int	ft_checkoverflow(int res, int term, int sign)
