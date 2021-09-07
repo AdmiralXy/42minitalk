@@ -1,5 +1,10 @@
 #include "ft_minitalk.h"
 
+void	ft_bit_handler(int bit)
+{
+	(void)bit;
+}
+
 void	ft_message_handler(int bit)
 {
 	(void)bit;
@@ -15,13 +20,14 @@ void	ft_send_byte(int pid, char byte)
 	shift = 0;
 	while (shift < 8)
 	{
+		signal(SIGUSR2, ft_bit_handler);
 		bit = (byte >> shift) & 1;
 		if (bit == 0)
 			result = kill(pid, SIGUSR1);
 		else
 			result = kill(pid, SIGUSR2);
 		shift++;
-		usleep(75);
+		usleep(300000);
 	}
 	if (result == -1)
 	{

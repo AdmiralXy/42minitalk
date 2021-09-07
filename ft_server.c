@@ -8,7 +8,7 @@ void	ft_build_message(int bit, t_char_handler *char_handler)
 		bit = 0;
 	else
 		bit = 1;
-	char_handler->byte += ((bit & 1) << char_handler->size);
+	char_handler->byte += bit << char_handler->size;
 	char_handler->size++;
 	if (char_handler->size == 8)
 	{
@@ -17,11 +17,11 @@ void	ft_build_message(int bit, t_char_handler *char_handler)
 		{
 			ft_putchar_fd('\n', 1);
 			kill(char_handler->client_pid, SIGUSR1);
-			usleep(75);
 		}
 		char_handler->byte = 0;
 		char_handler->size = 0;
 	}
+	kill(char_handler->client_pid, SIGUSR2);
 }
 
 void	ft_message_handler(int bit, siginfo_t *info, void *context)
