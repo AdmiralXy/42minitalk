@@ -6,7 +6,7 @@
 /*   By:  <kricky@student.21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 20:40:23 by                   #+#    #+#             */
-/*   Updated: 2021/09/07 20:40:23 by                  ###   ########.fr       */
+/*   Updated: 2021/09/07 20:40:28 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	server_pid = ft_atoi(argv[1]);
 	if (server_pid < 0)
 		ft_putendl_fd("Please enter the PID of the server correctly.", 1);
-	ft_putendl_fd("Try to send...", 1);
+	ft_putendl_fd("Trying to send...", 1);
 	sigaction(SIGUSR1, &sa, NULL);
 	ft_send_message(server_pid, argv[2]);
 	return (0);
