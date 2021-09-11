@@ -28,8 +28,6 @@ void	ft_build_message(int bit, t_char_handler *char_handler)
 		char_handler->byte = 0;
 		char_handler->size = 0;
 	}
-	usleep(100);
-	kill(char_handler->client_pid, SIGUSR2);
 }
 
 void	ft_message_handler(int bit, siginfo_t *info, void *context)

@@ -24,7 +24,6 @@ void	ft_send_byte(int pid, char byte)
 	int		bit;
 
 	shift = 0;
-	signal(SIGUSR2, ft_bit_handler);
 	while (shift < 8)
 	{
 		bit = (byte >> shift) & 1;
@@ -38,7 +37,7 @@ void	ft_send_byte(int pid, char byte)
 			ft_putendl_fd("Server PID is invalid or doesn't exist!", 1);
 			exit(1);
 		}
-		pause();
+		usleep(100);
 	}
 }
 
@@ -47,6 +46,7 @@ void	ft_send_message(int pid, char *message)
 	int		i;
 
 	i = 0;
+	usleep(50);
 	while (message[i] != '\0')
 	{
 		ft_send_byte(pid, message[i]);
