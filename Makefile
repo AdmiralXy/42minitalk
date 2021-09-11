@@ -1,6 +1,6 @@
 CC = gcc
 INC = .
-INCLUDES = push_swap.h
+INCLUDES = ft_minitalk.h
 CFLAGS = -Wall -Wextra -Werror
 
 CLIENT_NAME = client
