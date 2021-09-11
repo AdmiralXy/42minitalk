@@ -56,7 +56,8 @@ void	ft_send_message(int pid, char *message)
 
 int	main(int argc, char **argv)
 {
-	int					server_pid;
+	int	server_pid;
+
 	if (argc != 3)
 	{
 		if (argc < 3)
