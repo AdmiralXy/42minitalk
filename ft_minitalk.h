@@ -22,7 +22,7 @@ typedef struct s_char_handler
 {
 	char			byte;
 	unsigned int	size;
-	size_t 			client_pid;
+	size_t			client_pid;
 }				t_char_handler;
 
 int		ft_atoi(const char *str);
